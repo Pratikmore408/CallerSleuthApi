@@ -1,0 +1,77 @@
+This code will be provided in zip format 
+
+> unzip the file and save in some folder
+> open the folder in vscode or any local Ide
+> now run the npm install command to get all the dependancies (node_module file i will not include)
+> i have used the local mysql database so in .env file and database file change the credentials accordingly 
+> start point is server.js so run "node server.js" or "npm start"
+> if facing any problem please contact me at "pratikmore408@gmail.com"
+>i have put comments in the code for understanding of evaluator
+
+
+# User API
+This document outlines available User APIs for signup, login, and contact management.
+
+Authentication
+
+1. Signup:
+    Endpoint: /user/register
+    Method: POST
+    Payload:
+    JSON
+    {
+    "name": "string",
+    "phoneNumber": "string",
+    "email": "string",
+    "password": "string"
+    }
+
+2. Sign in:
+    Endpoint: /user/login
+    Method: POST
+    Payload:
+    JSON
+    {
+    "userName": "string",
+    "phoneNumber": "string"
+    }
+    Response: Upon successful login, a token will be provided. This token is required for authentication in subsequent API calls.
+
+# Contact APIs (Authenticated)
+    Important: All subsequent APIs require authentication using the token obtained upon login. Include the token in the Authorization header as a Bearer token.
+
+    1. To add a contact
+        Endpoint: /contact/add/
+        Method: POST
+        Payload:
+        JSON
+        {
+        "name": "string",
+        "phoneNumber": "string"
+        }
+
+    2. To report a number Spam
+        Report Spam:
+        Endpoint: /contact/reportSpam
+        Method: POST
+        Payload:
+        JSON
+        {
+        "userName": "string",
+        "phoneNumber": "string"
+        }
+    
+    3. To Search Contact By Name:
+        Endpoint: /contact/search/name/:keyword
+        Method: GET
+
+    4. To Search Contact By Phone Number:
+        Endpoint: /contact/search/phone/:phoneNumber
+        Method: GET
+
+    5. To Search Contact Details:
+        Endpoint: /contact/searchdetail/:id
+        Method: GET
+      
+
+    
